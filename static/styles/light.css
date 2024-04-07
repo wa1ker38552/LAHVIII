@@ -1,0 +1,22 @@
+:root {
+  --background: white;
+  --secondary: #c9c9c9;
+  --secondary-dark: #545454;
+  --color: black;
+  --background-accent: white;
+}
+
+.searchbar-icon {
+  filter: invert(91%) sepia(1%) saturate(4258%) hue-rotate(196deg) brightness(118%) contrast(58%);
+}
+
+.text-container a, .text-container div {
+  color: white !important;
+}
+
+::-webkit-scrollbar-thumb {
+  border: 4px solid rgba(0, 0, 0, 0);
+  background-clip: padding-box;
+  border-radius: 9999px;
+  background-color: #AAAAAA;
+}

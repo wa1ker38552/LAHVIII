@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Scroll Safe</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter">
+    {% if request.cookies.get('theme') %}
+      <link rel="stylesheet" href="/static/styles/{{request.cookies.get('theme')}}.css">
+    {% else %}
+      <link rel="stylesheet" href="/static/styles/light.css">
+    {% endif %}
+    <link rel="stylesheet" href="/static/styles/style.css">
+    <script>
+      const id = "{{id}}"
+    </script>
+    <script src="/static/scripts/lib.js"></script>
+    <script src="/static/scripts/post_load.js"></script>
+  </head>
+  <body>
+    <div class="modal-background centered-children" id="commentsModal" style="display: none">
+      <div class="modal">
+        <h3>Comments</h3>
+        <br>
+        <div class="comments-container" id="commentsContainer"></div>
+      </div>
+    </div>
+    <div class="navigation">
+      <a href="/" class="centered-vertically" style="height: 100%">
+        <img class="logo" src="/static/assets/scroll safe.png">
+      </a>
+      <div class="centered-children" style="height: 100%; position: relative">
+        <input class="searchbar" type="text" autocomplete="off" spellcheck="false" onchange='window.location.href="/p?url="+this.value'>
+        <img class="searchbar-icon" src="/static/assets/icon_search.png">
+      </div>
+      <div class="centered-children" style="position: absolute; right: 0; height: 100%">
+        {% if request.cookies.get('theme') == 'light' %}
+          <img class="theme-icon" src="/static/assets/dark.png" onclick="setTheme(this)">
+        {% else %}
+          <img class="theme-icon" src="/static/assets/light.png" onclick="setTheme(this)">
+        {% endif %}
+      </div>
+    </div>
+    <div class="overlay centered-children" id="loadingScreen">
+      <img src="/static/assets/loading.png">
+    </div>
+    <div class="content centered-children">
+      <div class="wrapper" id="contentContainer" style="padding: 0"></div>
+    </div>
+  </body>
+</html>

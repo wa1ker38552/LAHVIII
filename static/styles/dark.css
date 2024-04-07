@@ -1,0 +1,30 @@
+:root {
+  --background: black;
+  --secondary: #545454;
+  --secondary-dark: #c9c9c9;
+  --color: white;
+  --background-accent: #292929;
+}
+
+.logo {
+  filter: brightness(100%) !important;
+}
+
+.theme-icon, #loadingScreen img {
+  filter: invert(1);
+}
+
+.searchbar-icon {
+  filter: invert(30%) sepia(0%) saturate(1315%) hue-rotate(213deg) brightness(104%) contrast(93%) !important;
+}
+
+.searchbar:focus + .searchbar-icon {
+  filter: invert(1) !important;
+}
+
+::-webkit-scrollbar-thumb {
+  border: 4px solid rgba(0, 0, 0, 0);
+  background-clip: padding-box;
+  border-radius: 9999px;
+  background-color: #454545;
+}

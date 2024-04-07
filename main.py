@@ -5,6 +5,7 @@ from flask import redirect
 from flask import request
 from flask import Flask
 from threading import Thread
+from ai import comprehend
 import requests
 import random
 import base64
@@ -94,10 +95,10 @@ def api_comments():
   data =  r.json()
   comments = data['data']['items']
   for item in comments:
-    item['flagged'] = True if random.randint(1, 2) == 1 else False
+    item['flagged'] = comprehend(item['text']) if 'text' in item else False
   return {
     'data': comments,
     'cursor': data['pagination_token'] if 'pagination_token' in data else None
   }
 
-app.run(host='0.0.0.0', port=8080)
+# app.run(host='0.0.0.0', port=8080)
